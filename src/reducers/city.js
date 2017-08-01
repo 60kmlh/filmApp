@@ -1,12 +1,11 @@
 import *　as types from '../constants/ActionTypes'
 
-function city(state = {value: '',showPanel: false}, action) {
+function city(state = {cur: {name: '', id: ''}, cityList: [], showPanel: false}, action) {
   switch(action.type) {
+    case(types.GET_CITY_LIST):
+      return Object.assign({}, state, {cityList: action.cityList})
     case(types.TOGGLE_CITY):
-      return {
-        value: action.city,
-        showPanel: false  
-      }
+      return Object.assign({}, state, {cur: action.city, showPanel: false})
     case(types.SET_CITY_PANEL):
       return Object.assign({}, state, {showPanel: action.showPanel})
     default: 

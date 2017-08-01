@@ -54,7 +54,7 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: 'source-map',
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: {main:[require.resolve('./polyfills'), paths.appIndexJs],vendor:['axios']},
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -284,6 +284,10 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
+     new webpack.optimize.CommonsChunkPlugin({
+            // vendor是包括公共的第三方代码，称为initial chunk
+           name: ['vendor','manifest']
+       }),
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
     new SWPrecacheWebpackPlugin({

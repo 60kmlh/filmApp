@@ -15,7 +15,7 @@ class SearchFilm extends Component {
       <div>
         <SearchBar  type='film' cb={this.searchCallBack()} />
         {
-          this.state.filmList.length !== 0 ? <FilmList filmList={this.state.filmList}/> : ''
+          this.state.filmList.length !== 0 ? <FilmList filmList={this.state.filmList}/> : '无匹配'
         }
       </div>
     )
