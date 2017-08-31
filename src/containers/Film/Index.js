@@ -10,12 +10,12 @@ class Film extends Component {
   render() {
     return (
       <div>
-        <Route exact path='/film' component={TodayFilm}></Route>
-        <Route exact path='/film/today' component={TodayFilm}></Route>
-        <Route exact path='/film/search' component={SearchFilm}></Route>
-        <Route exact path='/film/detail' component={FilmDetail}></Route>
-        <Route exact path='/film/cinemasbyfilm' component={CinemasByFilm}></Route>
-        <Route exact path='/film/bookticket' component={BookTicket}></Route>
+        <Route exact path={this.props.match.path} component={TodayFilm}></Route>
+        <Route exact path={this.props.match.path+'/today'} component={TodayFilm}></Route>
+        <Route exact path={this.props.match.path+'/search'} component={SearchFilm}></Route>
+        <Route exact path={this.props.match.path+'/detail'} component={FilmDetail}></Route>
+        <Route exact path={this.props.match.path+'/cinemasbyfilm'} component={CinemasByFilm}></Route>
+        <Route exact path={this.props.match.path+'/bookticket'} component={BookTicket}></Route>
       </div>
     )
   }

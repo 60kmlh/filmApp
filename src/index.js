@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import App from './containers/App';
 import { HashRouter } from 'react-router-dom' 
 import configureStore from './store'
-import registerServiceWorker from './registerServiceWorker';
-
+import registerServiceWorker from './registerServiceWorker'
+import 'weui'
 const store = configureStore();
 
 ReactDOM.render(
