@@ -6,8 +6,6 @@ import Cenimas from './Cinemas/Index'
 import CityList from '../components/CityList'
 import { setCityPanel, queryCityList } from '../actions/city'
 
-import { TabBar, TabBarItem } from 'react-weui'
-
 import PickCity from '../components/PickCity'
 
 import createHistory from 'history/createHashHistory'
@@ -30,18 +28,14 @@ class App extends Component {
         <Route exact path='/' component={Film}></Route>
         <Route path='/film' component={Film}></Route>
         <Route path='/cinemas' component={Cenimas}></Route>
-        <TabBar style={{position: 'fixed', bottom: '0'}}>
-          <TabBarItem 
-            active={true}
+        <div>
+          <span 
             onClick={() => history.push('/film')}
-            label="电影"
-          />
-          <TabBarItem 
-            active={true}
+          >电影</span>
+          <span 
             onClick={() => history.push('/cinemas')}
-            label="影院"
-          />
-        </TabBar>
+          >影院</span>
+        </div>
       </div>
     )
   }
