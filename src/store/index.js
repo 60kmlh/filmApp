@@ -8,7 +8,7 @@ export default function(initState) {
     initState,
     compose(
       applyMiddleware(thunkMiddleware),
-      //window.devToolsExtension ? window.devToolsExtension() : undefined
+      // window.devToolsExtension ? window.devToolsExtension() : undefined
     )
   )
 

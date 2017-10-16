@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import FilmList from '../../components/FilmList'
 import { connect } from 'react-redux'
 import { queryTodayFilm } from '../../actions/film'
@@ -14,7 +13,6 @@ class TodayFilm extends Component {
   render() {
     return (
       <div>
-        <Link to='/film/search'>搜索</Link>
         <FilmList />
       </div>
     )

@@ -86,7 +86,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx', '.styl'],
     alias: {
       
       // Support React Native Web
@@ -144,6 +144,7 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
+          /\.styl$/
         ],
         loader: require.resolve('file-loader'),
         options: {
@@ -211,6 +212,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.styl$/,
+        use: [require.resolve('style-loader'), require.resolve('css-loader'), require.resolve('stylus-loader')]
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],

@@ -1,0 +1,8 @@
+export const film_query_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_query'
+export const film_cinemas_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_cinemas'
+export const cities_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cities'
+export const film_today_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_today'
+export const cinemas_movies_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cinemas_movies'
+export const cinemas_search_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cinemas_search'
+export const cinemas_local_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cinemas_local'
+export const film_search_api = 'https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_search'

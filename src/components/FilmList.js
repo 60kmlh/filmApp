@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import '../assets/style/filmList'
 
 class FilmList extends Component {
   render() {
     return (
-      <div>
+      <div className='filmList'>
         {this.props.filmList.map((film, index) => {
           return (
             <li key={film.movieId||film.movieid}>
-              <Link to={{pathname:'/film/detail', search: '?movieid='+film.movieId || film.movieid}}>
-                <section>
-                影片名称：{film.movieName || film.title}
-                </section>
-              </Link>
               <section>
-              <img src={film.pic_url || film.poster} alt=""/>
+                <img src={film.pic_url || film.poster} alt=""/>
+              </section>
+              <section className='info'>
+                <Link to={{pathname:'/film/detail', search: '?movieid='+film.movieId || film.movieid}}>
+                  {film.movieName || film.title}
+                </Link>
+              </section>
+              <section className='book'>
+                <Link to={{pathname:'/film/detail', search: '?movieid='+film.movieId || film.movieid}}>购票</Link>
               </section>
             </li>
             // <MediaBox key={film.movieId||film.movieid} type="appmsg">

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import SearchBar from '../../components/SearchBar'
-import FilmList from '../../components/FilmList'
+import SearchBar from './SearchBar'
+import FilmList from './FilmList'
 import axios from 'axios'
+import { film_search_api } from '../lib/api'
 
-class SearchFilm extends Component {
+class Search extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,7 +24,7 @@ class SearchFilm extends Component {
   searchCallBack(key) {
     var that = this
     return (key) => {
-      axios.get('https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_search', {params: {title: key}}).then(res => {
+      axios.get(film_search_api, {params: {title: key}}).then(res => {
         that.setState({
           filmList: res.data.result
         })
@@ -32,4 +33,4 @@ class SearchFilm extends Component {
   }
 }
 
-export default SearchFilm
+export default Search

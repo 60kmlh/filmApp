@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { getQueryParams } from '../../lib/utils'
+import { film_cinemas_api } from '../../lib/api'
 
 class CinemasByFilm extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class CinemasByFilm extends Component {
     )
   }
   getCinemasByFilm() {
-    axios.get("https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_cinemas", {params: {movieId: getQueryParams(this.props.location.search, 'movieid')}}).then(res => {
+    axios.get(film_cinemas_api, {params: {movieId: getQueryParams(this.props.location.search, 'movieid')}}).then(res => {
       this.setState({
         cinemasList: res.data.result
       })

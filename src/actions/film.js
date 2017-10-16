@@ -1,9 +1,10 @@
 import * as types from '../constants/ActionTypes'
 import axios from 'axios'
+import { film_today_api } from '../lib/api'
 
 export function queryTodayFilm(params) {
   return (dispatch, getState) => {
-    axios.get('https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/film_today',{params:{cityid: getState().city.cur.id}}).then(res => {
+    axios.get(film_today_api, {params:{cityid: getState().city.cur.id}}).then(res => {
       if(res.data.reason === 'success'){
         dispatch(getFilm(res.data.result))
       }

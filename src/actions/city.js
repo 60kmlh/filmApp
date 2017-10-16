@@ -2,10 +2,11 @@ import * as types from '../constants/ActionTypes'
 import { queryTodayFilm } from './film'
 import { queryNearbyCinemas } from './cinemas'
 import axios from 'axios'
+import { cities_api } from '../lib/api'
 
 export function queryCityList() {
   return (dispatch) => {
-    axios.get('https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cities').then(res => {
+    axios.get(cities_api).then(res => {
       if(res.data.reason === 'success'){
         dispatch(getCityList(res.data.result))
         dispatch(toggleCity(res.data.result[0]))

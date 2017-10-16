@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { getQueryParams } from '../lib/utils'
+import { cinemas_movies_api } from '../lib/api'
 
 class BookTicket extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class BookTicket extends Component {
   }
   getCinemaOnline() {
     var search = this.props.location.search
-    axios.get('https://www.easy-mock.com/mock/597596c7a1d30433d83b713a/film/cinemas_movies', {params: {cinemaid: getQueryParams(search, 'cinemaid'),movieid: getQueryParams(search, 'movieid')}}).then(res => {
+    axios.get(cinemas_movies_api, {params: {cinemaid: getQueryParams(search, 'cinemaid'),movieid: getQueryParams(search, 'movieid')}}).then(res => {
       this.setState({
         cinemaInfo: res.data.result.cinema_info,
         onlineInfo: res.data.result.lists
