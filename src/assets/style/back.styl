@@ -1,0 +1,24 @@
+@import './vari'
+
+.arror
+  position relative
+  
+.arror:after, .arror:before
+  border 10px solid transparent
+  border-right 10px solid #fff
+  width 0
+  height 0
+  position absolute
+  top 0
+  left 0px
+  content ' '
+
+
+.arror:before 
+  border-right-color #b1a9a9
+  left -2px
+.arror_head
+  height 50px
+  padding-top 15px
+  margin 0 10px
+  border-bottom 1px solid border-color

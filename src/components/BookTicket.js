@@ -2,47 +2,76 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { getQueryParams } from '../lib/utils'
 import { cinemas_movies_api } from '../lib/api'
+import Back from './Back'
+import Slider from 'react-slick'
+import '../assets/style/bookTicket'
+import 'slick-carousel/slick/slick.css'
 
 class BookTicket extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cinemaInfo: {},
-      onlineInfo: []
+      cinemaInfo: {city:''},
+      onlineInfo: [{
+        broadcast:[],
+        movieName:''
+      }],
+      indexFilm:0
     }
   }
   componentDidMount() {
     this.getCinemaOnline()
   }
   render() {
+    var settings = {
+      centerMode: true,
+      centerPadding: '0px',
+      slidesToShow: 5,
+      infinite: false,
+      arrows: false,
+      afterChange: (index) => {
+        this.setState({
+          indexFilm: index
+        })
+      }
+     
+    }
     return (
-      <div>
-        <span>cinemaName: {this.state.cinemaInfo.name}</span>
-        <br/>
-        <span>telephone: {this.state.cinemaInfo.telephone}</span>
-        <br/>
-        <span>address: {this.state.cinemaInfo.address}</span>
-        {
-          this.state.onlineInfo.map((item, index) => {
+      <div className='bookTicket'>
+        <Back />
+        <div className='cinemas'>
+          <div className="name">{this.state.cinemaInfo.name} ({this.state.cinemaInfo.city+'店'})</div>
+          <div className='address'>{this.state.cinemaInfo.address}</div>
+          <span className='tel'>
+            <a href={'tel:'+this.state.cinemaInfo.telephone}>电话</a>
+          </span>
+        </div>
+        <Slider className="posterList" {...settings}>
+          {this.state.onlineInfo.map((item, index) => {
             return (
-              <li key={item.movieId}>
-                movieName: {item.movieName}
+              <div key={item.movieId}>
                 <img src={item.pic_url} alt=""/>
-                {item.broadcast.map((item2, index2) => {
-                  return (
-                    <div key={index2}>
-                     <span>hall: {item2.hall}</span>
-                     <br/>
-                     <span>price: {item2.price}</span>
-                     <br/>
-                     <span>time: {item2.time}</span>
-                    </div>
-                  )
-                })}
-              </li>
+              </div>
             )
-          })
-        }
+          })}
+        </Slider>
+        <div className='film_title'>{this.state.onlineInfo[this.state.indexFilm].movieName}</div>
+        <div className='broadcast'>
+          {
+            this.state.onlineInfo[this.state.indexFilm].broadcast.map((item, index) => {
+              return (
+                <div className='info' key={item.time}>
+                  <div className='time'>{item.time}</div>
+                  <div className='hall'>{item.hall}</div>
+                  <div className='price'>{item.price+'元'}</div>
+                  <div>
+                    <a className='buy_btn'>购票</a>
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     )
   }

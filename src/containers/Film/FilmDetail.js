@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { getQueryParams } from '../../lib/utils'
 import { film_query_api } from '../../lib/api'
+import Back from '../../components/Back'
 import '../../assets/style/filmDetail'
 
 class FilmDeatil extends Component {
@@ -27,6 +28,7 @@ class FilmDeatil extends Component {
     var detail = this.state.detail
     return (
       <div className='filmDetail'>
+        <Back />
         <div className='poster'>
           <img src={detail.poster} alt=""/>
         </div>

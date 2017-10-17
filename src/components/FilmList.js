@@ -19,7 +19,7 @@ class FilmList extends Component {
                 </Link>
               </section>
               <section className='book'>
-                <Link to={{pathname:'/film/detail', search: '?movieid='+film.movieId || film.movieid}}>购票</Link>
+                <Link className='buy_btn' to={{pathname:'/film/detail', search: '?movieid='+film.movieId || film.movieid}}>购票</Link>
               </section>
             </li>
             // <MediaBox key={film.movieId||film.movieid} type="appmsg">

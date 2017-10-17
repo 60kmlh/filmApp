@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import Head from '../components/Head'
 import Film from './Film/Index'
 import Cenimas from './Cinemas/Index'
-import Tab from '../components/Tab'
 import Search from '../components/Search'
 import '../assets/style/app'
 
@@ -20,12 +18,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Head />
         <Route exact path='/' component={Film}></Route>
         <Route path='/film' component={Film}></Route>
         <Route path='/cinemas' component={Cenimas}></Route>
         <Route path='/:type/search' component={Search}></Route>
-        <Tab />
       </div>
     )
   }

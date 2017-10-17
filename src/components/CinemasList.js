@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom'
 class CinemasList extends Component {
   render() {
     return (
-      <div>
+      <div className='cinemasList'>
         {
           this.props.cinemasList.map((cinemas, index) => {
             return (
-              <div key={cinemas.id}>
-                <span>{cinemas.cinemaName}</span>
+              <li key={cinemas.id}>
+                <span className='name'>{cinemas.cinemaName}</span>
                 <br/>
-                <span>{cinemas.address}</span>
-                <Link to={{pathname:'/cinemas/online/', search: '?cinemaid=' + cinemas.id}} >详情</Link>
-              </div>
+                <span className='address'>{cinemas.address}</span>
+                <Link className='book buy_btn' to={{pathname:'/cinemas/online/', search: '?cinemaid=' + cinemas.id}} >详情</Link>
+              </li>
             )
           })
         }

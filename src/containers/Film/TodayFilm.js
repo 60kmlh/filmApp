@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import FilmList from '../../components/FilmList'
 import { connect } from 'react-redux'
 import { queryTodayFilm } from '../../actions/film'
+import Head from '../../components/Head'
+import Tab from '../../components/Tab'
 
 class TodayFilm extends Component {
   constructor(props) {
@@ -13,7 +15,9 @@ class TodayFilm extends Component {
   render() {
     return (
       <div>
+        <Head />
         <FilmList />
+        <Tab />
       </div>
     )
   }
