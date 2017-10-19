@@ -3,12 +3,13 @@ import { queryTodayFilm } from './film'
 import { queryNearbyCinemas } from './cinemas'
 import axios from 'axios'
 import { cities_api } from '../lib/api'
+import { sortCity } from '../lib/utils'
 
 export function queryCityList() {
   return (dispatch) => {
     axios.get(cities_api).then(res => {
       if(res.data.reason === 'success'){
-        dispatch(getCityList(res.data.result))
+        dispatch(getCityList(sortCity(res.data.result)))
         dispatch(toggleCity(res.data.result[0]))
       }
     })

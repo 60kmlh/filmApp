@@ -11,8 +11,8 @@ class Head extends Component {
     return (
       <div className='head'>
         <span className='cur' onClick={() => this.toggleCityPanel()}>{this.props.city.city_name}</span>
-        <Link className='search' to='/film/search'>搜索</Link>
-        {this.props.showCityList ? <CityList /> : ''}
+        <Link className='search' to={'/'+this.props.type+'/search'}>搜索</Link>
+        <CityList show={this.props.showCityList} />
       </div>
     )
   }

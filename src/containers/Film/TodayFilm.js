@@ -15,7 +15,7 @@ class TodayFilm extends Component {
   render() {
     return (
       <div>
-        <Head />
+        <Head type='film' />
         <FilmList />
         <Tab />
       </div>

@@ -1,6 +1,6 @@
 import *　as types from '../constants/ActionTypes'
 
-function city(state = {cur: {name: '', id: ''}, cityList: [], showPanel: false}, action) {
+function city(state = {cur: {name: '', id: ''}, cityList: {resList:[{pre:"S",list:[]}],indexList:[]}, showPanel: false}, action) {
   switch(action.type) {
     case(types.GET_CITY_LIST):
       return Object.assign({}, state, {cityList: action.cityList})
