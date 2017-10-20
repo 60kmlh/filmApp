@@ -7,7 +7,7 @@ import { queryNearbyCinemas } from '../../actions/cinemas'
 
 class NearbyCinemas extends Component {
   componentDidMount() {
-    this.props.dispatch(queryNearbyCinemas())
+    // this.props.dispatch(queryNearbyCinemas())
   }
   render() {
     return (

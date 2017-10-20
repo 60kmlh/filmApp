@@ -64,8 +64,8 @@ class CityList extends Component {
     this.props.dispatch(toggleCity(city))
   }
   handleTouchStart(e) {
-    e.stopPropagation();
-    e.preventDefault();
+    e.stopPropagation()
+    e.preventDefault()
     this.setState({
       codeIndex: e.touches[0].target.id,
       codeY: e.touches[0].pageY,
@@ -74,9 +74,8 @@ class CityList extends Component {
     this.refs.list.scrollTop = this.calHeight(e.touches[0].target.id)
   }
   handleTouchMove(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    
+    e.stopPropagation()
+    e.preventDefault()
     var move = e.touches[0].pageY - this.state.codeY
     var moveIndex = Math.round(move/20)
     var endIndex = Number(this.state.codeIndex)+moveIndex
@@ -99,7 +98,8 @@ class CityList extends Component {
     var height = 0
     this.props.cityList.map((item, idx) => {
       if(idx < index) {
-        height +=(25*Number(item.list.length+1))
+        height +=23
+        height +=(25*Number(item.list.length))
       }
     return true
     })

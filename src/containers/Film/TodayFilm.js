@@ -22,7 +22,7 @@ class TodayFilm extends Component {
     )
   }
   componentDidMount() {
-    this.queryFilmList()
+    // this.queryFilmList()
   }
   queryFilmList() {
     this.props.dispatch(queryTodayFilm())
